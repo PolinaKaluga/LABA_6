@@ -126,7 +126,7 @@ public class XmlParser {
         sb.append("<?xml version = \"1.0\"?>\n");
         sb.append("<treemap>\n");
         for (Ticket ticket : tickets) {
-            sb.append("\t<LabWork>\n");
+            sb.append("\t<Ticket>\n");
             sb.append("\t\t<name>").append(ticket.getName()).append("</name>");
             sb.append("\n\t\t<coordinate_x>").append(ticket.getCoordinates().getX()).append("</coordinate_x>");
             try {
