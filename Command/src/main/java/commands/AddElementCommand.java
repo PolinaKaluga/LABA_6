@@ -4,8 +4,6 @@ package commands;
 import collection.CollectionManager;
 import collection.Ticket;
 import collection.TicketFieldValidation;
-import commands.Command;
-import commands.InvocationStatus;
 import exceptions.CannotExecuteCommandException;
 import workWithFile.TicketFieldsReader;
 
@@ -15,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Команда, добавляющая элемент в коллекцию
  */
-public class InsertElementCommand extends Command{
+public class AddElementCommand extends Command{
     /**
      * Поле, хранящее ссылку на объект класса CollectionManager.
      */
@@ -29,7 +27,7 @@ public class InsertElementCommand extends Command{
 
 
 
-    public InsertElementCommand(TicketFieldsReader ticketFieldsReader){
+    public AddElementCommand(TicketFieldsReader ticketFieldsReader){
         super("insert");
         this.ticketFieldsReader=ticketFieldsReader;
     }
@@ -37,7 +35,7 @@ public class InsertElementCommand extends Command{
      * Конструктор класса, предназначенный для серверной части команды
      * @param collectionManager менеджер коллекции
      */
-    public InsertElementCommand(CollectionManager collectionManager) {
+    public AddElementCommand(CollectionManager collectionManager) {
         this.collectionManager=collectionManager;
     }
 
@@ -71,10 +69,10 @@ public class InsertElementCommand extends Command{
         } else if (invocationStatus.equals(InvocationStatus.SERVER)) {
             if(result.size()==2) {
                 Ticket ticket = (Ticket) this.getResult().get(1);
-                collectionManager.insertWithId((Integer) this.getResult().get(0), ticket, printStream);
+                collectionManager.addWithId((Integer) this.getResult().get(0), ticket, printStream);
             }else{
                 Ticket ticket = (Ticket) this.getResult().get(0);
-                collectionManager.insert(ticket);
+                collectionManager.add(ticket);
             }
         }
     }

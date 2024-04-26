@@ -54,7 +54,7 @@ public class Application {
             String file = fileManager.readFromFile(inputFile);
 
             Ticket[] tickets = xmlParser.parseToCollection(new InputSource(new StringReader(file)));
-            for (Ticket ticket : tickets) collectionManager.insertWithId(ticket.getId(), ticket, System.out);
+            for (Ticket ticket : tickets) collectionManager.addWithId(ticket.getId(), ticket, System.out);
 
             this.commandInvoker = new CommandInvoker(collectionManager, inputFile);
 

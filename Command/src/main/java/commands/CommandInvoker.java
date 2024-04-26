@@ -2,9 +2,6 @@ package commands;
 
 
 import collection.CollectionManager;
-import commands.Command;
-import commands.CommandContainer;
-import commands.InvocationStatus;
 import exceptions.CannotExecuteCommandException;
 import io.UserIO;
 
@@ -122,7 +119,7 @@ public class CommandInvoker {
         clientCommands.put("exit", new ExitCommand());
         clientCommands.put("help", new HelpCommand(clientCommands));
 
-        clientCommands.put("insert", new InsertElementCommand(ticketFieldsReader));
+        clientCommands.put("add", new AddElementCommand(ticketFieldsReader));
         clientCommands.put("update", new UpdateElementCommand(userIO));
         clientCommands.put("remove_key", new RemoveKeyElementCommand());
         clientCommands.put("execute_script", new ExecuteScriptCommand(userIO, ticketFieldsReader, script));
@@ -143,7 +140,7 @@ public class CommandInvoker {
         serverCommands.put("save", new SaveCommand(collectionManager, inputFile));//y
         serverCommands.put("help", new HelpCommand(serverCommands));//y
 //
-        serverCommands.put("insert", new InsertElementCommand(collectionManager));//y
+        serverCommands.put("add", new AddElementCommand(collectionManager));//y
         serverCommands.put("update", new UpdateElementCommand(collectionManager));//y
         serverCommands.put("remove_key", new RemoveKeyElementCommand(collectionManager));//y
         serverCommands.put("remove_greater_key",new RemoveGreaterKeyCommand(collectionManager));

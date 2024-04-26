@@ -114,18 +114,18 @@ public class CollectionManager {
 
     /**
      * Метод, добавляющий новый элемент в коллекцию c рандомным id
-     * @param ticket элемент коллекции, требующий добавления
      */
-    public void insert(Ticket ticket) {
+    public void add(Ticket ticket) {
         int id=getNewRandomId();
         ticket.setId(id);
         treeMap.put(id, ticket);
     }
+
     /**
      * Метод, добавляющий новый элемент в коллекцию c конкретным  id
      * @param ticket элемент коллекции, требующий добавления
      */
-    public void insertWithId(Integer id, Ticket ticket, PrintStream printStream) {
+    public void addWithId(Integer id, Ticket ticket, PrintStream printStream) {
         if (treeMap.get(id) == null) {
             treeMap.put(id, ticket);
         } else printStream.printf("Элемент с данным ключом уже существует");
@@ -145,13 +145,6 @@ public class CollectionManager {
     }
     /**
      * Метод, изменяющий поле выбранного по идентификатору элемента коллекции
-     *
-     * @param id    уникальный идентификатор элемента коллекции (ключ)
-     * @param field имя поля элемента коллекции, требующее изменения
-     * @param value значение поля элемента коллекции
-     * @throws NullPointerException     исключение, выбрасываемое когда требует инициализации, но не инициалировано
-     * @throws ClassCastException       исключение, выбрасываемое при попытке преобразовать один тип в другой, который не может быть получен из исходного
-     * @throws IllegalArgumentException исключение, выбрасываемое при попытке передать методу недопустимые атрибуты
      */
     public void update(Integer id, String field, String value,PrintStream printStream) {
         if(TicketFieldValidation.validate(field,value)) {

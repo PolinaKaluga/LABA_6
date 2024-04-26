@@ -3,7 +3,7 @@ package collection;
 import java.util.Locale;
 
 /**
- * Класс, предназначенный для валидации полей объекта LabWork.
+ * Класс, предназначенный для валидации полей объекта Ticket.
  */
 public class TicketFieldValidation {
 

@@ -27,7 +27,7 @@ public class TicketFieldsReader {
      * Метод, выводящий производящий чтение данных из консоли. Запрашивает ввод полей в строго определенном порядке.
      *
      * @param id уникальный идентификатор объекта класса LabWork, который должен быть записан в качестве ключа в коллекцию
-     * @return возращает объект типа LabWork
+     * @return возращает объект типа Ticket
      */
     public Ticket read(Integer id) {
         String i = Instant.now().toString();
@@ -36,14 +36,14 @@ public class TicketFieldsReader {
     /**
      * Метод, выводящий производящий чтение данных из консоли. Запрашивает ввод полей в строго определенном порядке.
      *
-     * @return возращает объект типа LabWork
+     * @return возращает объект типа Ticket
      */
     public Ticket read( ) {
         String i = Instant.now().toString();
         return new Ticket(readName(), readCoordinates(),ZonedDateTime.parse(i).plusHours(3), readPrice(),readType(),readPerson());
     }
     /**
-     * Метод, производящий чтение поля name типа String объекта LabWork из потока, указанного в поле userIO. При некорректном вводе просит ввести поля заново.
+     * Метод, производящий чтение поля name типа String объекта Ticket из потока, указанного в поле userIO. При некорректном вводе просит ввести поля заново.
      *
      * @return значение поля name, уже проверенное на недопустимую ОДЗ.
      */
@@ -229,8 +229,6 @@ public class TicketFieldsReader {
     public Person readPerson(){
         return new Person(readPersonHeight(),readPersonWeight(), readEyeColor(), readHairColor());
     }
-
-
 
 
 }
